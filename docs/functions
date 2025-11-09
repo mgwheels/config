@@ -1,0 +1,19 @@
+function docs() {
+    echo "docs_cd:     --- cd into docs dir"
+    echo "docs_pull:   --- Pull latest docs"
+    echo "docs_push:   --- Commit and push current docs"
+}
+
+function docs_cd() {
+    cd /mnt/c/Users/mwhee/Documents/second-brain
+}
+
+function docs_pull() {
+    git -C /mnt/c/Users/mwhee/Documents/second-brain pull
+}
+
+function docs_push() {
+    git -C /mnt/c/Users/mwhee/Documents/second-brain add .
+    git -C /mnt/c/Users/mwhee/Documents/second-brain commit -m "docs: commit latest docs"
+    git -C /mnt/c/Users/mwhee/Documents/second-brain push
+}
