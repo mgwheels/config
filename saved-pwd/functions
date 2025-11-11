@@ -1,0 +1,35 @@
+function _get_saved_pwd_path() {
+    filepath="$HOME/.config/saved-pwd/saved-pwd.txt"
+    echo $filepath
+}
+
+function get_pwd() {
+    echo $saved_pwd
+}
+
+function save_pwd() {
+    filepath=$(_get_saved_pwd_path)
+    pwd >| $filepath
+    echo "PWD Saved: " $(pwd)
+}
+
+function swap_pwd() {
+    filepath=$(_get_saved_pwd_path)
+    current=$(pwd)
+    echo -e "*Swapping last saved pwd \n$(cat $filepath)\n with current*"
+    cd $(cat $filepath)
+    echo -e "PWD Saved: \n${current}"
+    echo "${current}" >| $filepath
+}
+
+function last_pwd() {
+    filepath=$(_get_saved_pwd_path)
+    echo "*Changing to last saved pwd*"
+    cd $(cat $filepath)
+}
+
+function last_saved_pwd() {
+    filepath=$(_get_saved_pwd_path)
+    echo "Last saved directory:"
+    echo $(cat $filepath)
+}
