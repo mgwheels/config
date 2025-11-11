@@ -1,3 +1,8 @@
+function _get_docs_path() {
+    filepath="/mnt/c/Users/mwhee/Documents/second-brain"
+    echo $filepath
+}
+
 function docs() {
     echo "docs_cd:     --- cd into docs dir"
     echo "docs_pull:   --- Pull latest docs"
@@ -5,15 +10,15 @@ function docs() {
 }
 
 function docs_cd() {
-    cd /mnt/c/Users/mwhee/Documents/second-brain
+    cd $(_get_docs_path)
 }
 
 function docs_pull() {
-    git -C /mnt/c/Users/mwhee/Documents/second-brain pull
+    git -C $(_get_docs_path) pull
 }
 
 function docs_push() {
-    git -C /mnt/c/Users/mwhee/Documents/second-brain add .
-    git -C /mnt/c/Users/mwhee/Documents/second-brain commit -m "docs: commit latest docs"
-    git -C /mnt/c/Users/mwhee/Documents/second-brain push
+    git -C $(_get_docs_path) add .
+    git -C $(_get_docs_path) commit -m "docs: commit latest docs"
+    git -C $(_get_docs_path) push
 }
