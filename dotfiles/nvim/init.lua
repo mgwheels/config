@@ -1,10 +1,8 @@
--- Color Scheme
-vim.cmd.colorscheme('slate')
-
--- Basic Settings
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.cursorline = true
+-- Examples for getting started with nvim lua: https://martinlwx.github.io/en/config-neovim-from-scratch/
+require('options')
+require('keymaps')
+require('plugins')
+require('colorscheme')
 
 -- Indentation Settings
 vim.opt.smartindent = true
@@ -29,3 +27,4 @@ vim.opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })
 -- Performance Improvements
 vim.opt.redrawtime = 10000
 vim.opt.maxmempattern = 20000
+
