@@ -1,10 +1,10 @@
--- Delete a selection without cutting it with `x` in Normal Mode
-vim.keymap.set('n', 'x', '"_d')
+-- [[ Basic Remaps ]]
 
--- Delete the whole line without cutting it with `xx` in Normal Mode
+-- Center screen when searching with n
+vim.keymap.set('n', 'n', 'nzzzv', { desc = "Next search result, centered" })
+vim.keymap.set('n', 'N', 'Nzzzv', { desc = "Prior search result, centered" })
 
-vim.keymap.set('n', 'xx', '"_dd')
-
-
--- Delete a selection without cutting it with `x` in Visual Mode
-vim.keymap.set('v', 'x', '"_d')
+-- Remap x to allow deletes without cutting to clipboard
+vim.keymap.set('n', 'x', '"_d', { desc = "Deletes a selection without cutting (Normal)" })
+vim.keymap.set('n', 'xx', '"_dd', { desc = "Deletes a line without cutting (Normal)" })
+vim.keymap.set('v', 'x', '"_d', { desc = "Deletes a selection without cutting (Visual)" })
