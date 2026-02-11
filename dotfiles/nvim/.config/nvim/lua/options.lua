@@ -1,26 +1,52 @@
+local opt = vim.opt
+
 -- Hint: use `:h <option>` to figure out the meaning if needed.
-vim.opt.clipboard = 'unnamedplus'   -- use system clipboard
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
-vim.opt.mouse = 'a'                 -- allow mouse to be used in nvim
+opt.clipboard = 'unnamedplus'   -- use system clipboard
+opt.completeopt = {'menu', 'menuone', 'noselect'}
+opt.mouse = 'a'                 -- allow mouse to be used in nvim
 
 -- Tab
-vim.opt.tabstop = 4                  -- number of visual spaces per TAB
-vim.opt.softtabstop = 4              -- number of spaces in tab when editing
-vim.opt.shiftwidth = 4               -- insert 4 spaces on a tab
-vim.opt.expandtab = true             -- tabs are spaces, mainly because of Python
+opt.tabstop = 4                  -- number of visual spaces per TAB
+opt.softtabstop = 4              -- number of spaces in tab when editing
+opt.shiftwidth = 4               -- insert 4 spaces on a tab
+opt.expandtab = true             -- tabs are spaces, mainly because of Python
 
 -- UI config
 -- vim.cmd.colorscheme('slate')
-vim.opt.number = true               -- show absolute number
-vim.opt.relativenumber = true       -- add numbers to each line on the left side
-vim.opt.cursorline = true           -- highlight cursor line underneath the cursor horizontally
-vim.opt.splitbelow = true           -- open new vertical split bottom
-vim.opt.splitright = true           -- open new horizontal splits right
--- vim.opt.termguicolors = true        -- enable 24-bit RGB color in the TUI
-vim.opt.showmode = false 
+opt.number = true               -- show absolute number
+opt.relativenumber = true       -- add numbers to each line on the left side
+opt.cursorline = true           -- highlight cursor line underneath the cursor horizontally
+opt.splitbelow = true           -- open new vertical split bottom
+opt.splitright = true           -- open new horizontal splits right
+-- opt.termguicolors = true        -- enable 24-bit RGB color in the TUI
+opt.showmode = false 
 
 -- Searching
-vim.opt.incsearch = true            -- search as characters are entered
-vim.opt.hlsearch = false            -- do not highlight matches
-vim.opt.ignorecase = true           -- ignore case in searches by default
-vim.opt.smartcase = true            -- but make it case sensitive if an uppercase is entered
+opt.incsearch = true            -- search as characters are entered
+opt.hlsearch = false            -- do not highlight matches
+opt.ignorecase = true           -- ignore case in searches by default
+opt.smartcase = true            -- but make it case sensitive if an uppercase is entered
+
+-- Indentation Settings
+opt.smartindent = true
+opt.autoindent = true
+
+-- Visual Settings
+opt.showmatch = true
+opt.matchtime = 2
+
+-- Behavior Settings
+opt.errorbells = false
+
+-- Split Behavior
+opt.splitbelow = true
+opt.splitright = true
+
+-- Command-line Completion
+opt.wildmenu = true
+opt.wildmode = "longest:full,full"
+opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })
+
+-- Performance Improvements
+opt.redrawtime = 10000
+opt.maxmempattern = 20000
