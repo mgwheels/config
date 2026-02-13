@@ -46,5 +46,7 @@ require("nvim-tree").setup({
 -- Keybindings
 -- Press Ctrl + n to open/close the tree
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { desc = 'Toggle NvimTree' })
+-- Press <leader>n to open/close tree
+vim.keymap.set('n', '<leader>n', ':NvimTreeToggle<CR>', { desc = 'Toggle NvimTree' })
 -- Press <leader>e to focus the tree
 vim.keymap.set('n', '<leader>e', ':NvimTreeFocus<CR>', { desc = 'Focus NvimTree' })

@@ -3,6 +3,4 @@ require('options')
 require('keymaps')
 require('plugins/init')
 
-vim.g.mapleader = " "
-
 -- TODO: Continue reviewing available plugins and config from example: https://github.com/jdhao/nvim-config?tab=readme-ov-file

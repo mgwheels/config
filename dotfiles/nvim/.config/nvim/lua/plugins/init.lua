@@ -7,17 +7,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Specs for plugins
 local plugin_specs = {
-  -- mini icons
-  {
-    "echasnovski/mini.icons",
-    version = false,
-    config = function()
-      local icons = require("mini.icons")
-      icons.setup()
-      icons.mock_nvim_web_devicons() -- Replaces nvim-web-devicons used by nvim-tree
-    end,
-  },
-
   -- colorscheme
   {
     "tanvirtin/monokai.nvim",
@@ -49,4 +38,3 @@ local plugin_specs = {
 
 -- Pass the specs table to lazy.setup
 require("lazy").setup(plugin_specs)
-
