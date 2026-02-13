@@ -4,6 +4,20 @@ Config that I use regularly for computers.
 
 # Content
 
+## Dotfiles
+
+### Bash
+
+Configuration for my bash shell, includes `.bashrc`
+
+### Neovim
+
+Configuration for my neovim code editor, stored in `~/.config/nvim`
+
+### Tmux
+
+Dotfiles for tmux. Includes ~/.tmux.conf
+
 ## Terminal Functions
 
 ### docs
