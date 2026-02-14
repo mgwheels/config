@@ -3,6 +3,11 @@ local USE_ICONS = true
 
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    },
+  },
   view = {
     width = 30,
     side = "left",
@@ -44,9 +49,6 @@ require("nvim-tree").setup({
 })
 
 -- Keybindings
--- Press Ctrl + n to open/close the tree
-vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { desc = 'Toggle NvimTree' })
--- Press <leader>n to open/close tree
-vim.keymap.set('n', '<leader>n', ':NvimTreeToggle<CR>', { desc = 'Toggle NvimTree' })
--- Press <leader>e to focus the tree
-vim.keymap.set('n', '<leader>e', ':NvimTreeFocus<CR>', { desc = 'Focus NvimTree' })
+vim.keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', { desc = 'Toggle nvim-tree' })
+vim.keymap.set('n', '<leader>tf', ':NvimTreeFindFile<CR>', { desc = 'Find file in nvim-tree' })
+vim.keymap.set('n', '<leader>te', ':NvimTreeFocus<CR>', { desc = 'Focus (entrace) to nvim-tree' })

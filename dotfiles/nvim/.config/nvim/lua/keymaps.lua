@@ -1,6 +1,4 @@
--- [[ Basic Remaps ]]
-
--- Leaderky mapping
+-- Leaderkey mapping
 vim.g.mapleader = " "
 
 -- Center screen when searching with n
@@ -11,6 +9,9 @@ vim.keymap.set('n', 'N', 'Nzzzv', { desc = "Prior search result, centered" })
 vim.keymap.set('n', 'x', '"_d', { desc = "Deletes a selection without cutting (Normal)" })
 vim.keymap.set('n', 'xx', '"_dd', { desc = "Deletes a line without cutting (Normal)" })
 vim.keymap.set('v', 'x', '"_d', { desc = "Deletes a selection without cutting (Visual)" })
+
+-- Remap U to handle redo
+vim.keymap.set('n', 'U', '<C-r>', { desc = "Redo" })
 
 -- Terminal keymaps
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { desc = "Exit terminal focus with Esc key" })
