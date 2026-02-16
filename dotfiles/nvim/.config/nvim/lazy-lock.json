@@ -1,6 +1,7 @@
 {
-  "fzf-lua": { "branch": "main", "commit": "739330f48ca64b4283f5228e9dc9c0c8f9a37110" },
+  "fzf-lua": { "branch": "main", "commit": "5921997472574fca3880b62949eb8679dc6f5afc" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
-  "nvim-tree.lua": { "branch": "master", "commit": "2f1010ca7764ba2dc2ebe42b34c118631a453076" },
+  "nvim-tree.lua": { "branch": "master", "commit": "1df1960d0e3a26643a4100f64fa03b991b9f4b85" },
+  "nvim-treesitter": { "branch": "main", "commit": "4d9466677a5ceadef104eaa0fe08d60d91c4e9a7" },
   "sonokai": { "branch": "master", "commit": "b023c5280b16fe2366f5e779d8d2756b3e5ee9c3" }
 }

@@ -3,6 +3,16 @@ local USE_ICONS = true
 
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
+
+  filters = {
+    dotfiles = false,      -- Show files starting with a dot (like .gitignore)
+    git_ignored = false,   -- Show files listed in .gitignore (like .terraform)
+  },
+  -- Optional: If you still want to hide the .git folder itself
+  git = {
+    ignore = false,
+  },
+
   actions = {
     open_file = {
       quit_on_open = true,
