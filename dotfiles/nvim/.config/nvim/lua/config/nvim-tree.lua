@@ -62,3 +62,4 @@ require("nvim-tree").setup({
 vim.keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', { desc = 'Toggle nvim-tree' })
 vim.keymap.set('n', '<leader>tf', ':NvimTreeFindFile<CR>', { desc = 'Find file in nvim-tree' })
 vim.keymap.set('n', '<leader>te', ':NvimTreeFocus<CR>', { desc = 'Focus (entrace) to nvim-tree' })
+vim.keymap.set('n', '<leader>tc', ':NvimTreeCollapse<CR>', { desc = 'Collapse all folders in nvim-tree' })
