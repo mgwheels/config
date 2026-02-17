@@ -21,6 +21,7 @@ opt.autoindent = true            -- Auto indent current line
 opt.number = true               -- Show line number
 opt.relativenumber = true       -- Show relative line number
 opt.cursorline = true           -- Highlight cursor line
+opt.wrap = false                -- Don't wrap lines
 opt.termguicolors = true        -- Enable 24-bit RGB color in the TUI
 opt.showmode = false            -- Don't display current mode
 opt.showmatch = true            -- Highlight matching brackets
