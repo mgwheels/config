@@ -13,11 +13,11 @@ require("nvim-tree").setup({
     ignore = false,
   },
 
-  actions = {
-    open_file = {
-      quit_on_open = true,
-    },
-  },
+  -- actions = {
+    -- open_file = {
+      -- quit_on_open = true,
+    -- },
+  -- },
   view = {
     width = 30,
     side = "left",
@@ -59,7 +59,7 @@ require("nvim-tree").setup({
 })
 
 -- Keybindings
-vim.keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', { desc = 'Toggle nvim-tree' })
-vim.keymap.set('n', '<leader>tf', ':NvimTreeFindFile<CR>', { desc = 'Find file in nvim-tree' })
-vim.keymap.set('n', '<leader>te', ':NvimTreeFocus<CR>', { desc = 'Focus (entrace) to nvim-tree' })
-vim.keymap.set('n', '<leader>tc', ':NvimTreeCollapse<CR>', { desc = 'Collapse all folders in nvim-tree' })
+vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle nvim-tree" })
+vim.keymap.set('n', '<leader>tf', '<cmd>NvimTreeFindFile<cr>', { desc = 'Find file in nvim-tree' })
+vim.keymap.set('n', '<leader>te', '<cmd>NvimTreeFocus<cr>', { desc = 'Focus (entrace) to nvim-tree' })
+vim.keymap.set('n', '<leader>tc', '<cmd>NvimTreeCollapse<cr>', { desc = 'Collapse all folders in nvim-tree' })

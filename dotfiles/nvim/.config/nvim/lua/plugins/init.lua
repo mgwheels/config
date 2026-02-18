@@ -48,7 +48,28 @@ local plugin_specs = {
     end,
     event = "VeryLazy",
   },
+
+  -- Mason lsp configuration
+  {
+    "mason-org/mason-lspconfig.nvim",
+    dependencies = {
+      "mason-org/mason.nvim",
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+      require("config.mason-lspconfig")
+      require("config.lsp")
+    end,
+  },
+
+  -- nvim-autopairs for auto brackets, quotes, etc.
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+  },
 }
+
 
 
 -- Pass the specs table to lazy.setup
