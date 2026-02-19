@@ -37,12 +37,36 @@ export NVM_DIR="$HOME/.nvm"
 # ----- Config ----- #
 source ~/.config/saved-pwd/functions
 source ~/.config/docs/functions
+source ~/.config/miscellaneous/dotfilePush.sh
+
+
+# ----- Neovim ----- #
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+alias vi=nvim
+alias nvim-update='nvim --headless "+Lazy! sync" +qa'
+
+
+# ----- Tmux ----- #
+alias tn='tmux new -s'
+alias ta='tmux a -t'
+alias tls='tmux ls'
+alias tks='tmux kill-session -t'
+alias tka='tmux kill-server'
 
 
 # ----- Alias ----- #
 alias open=explorer.exe
 alias reload='source ~/.bashrc'
 alias weather='curl wttr.in' # curl wttr.in/CityName
-alias vi=nvim
 alias fzf="fzf --preview='cat {}'"
-alias nvim-update='nvim --headless "+Lazy! sync" +qa'
+alias lg='lazygit'
+
+
+# ----- Homebrew ----- #
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+# Add the specific folder where Brew keeps the generic 'gcc' name to override older system version
+LATEST_GCC=$(ls -1 $(brew --prefix)/bin/gcc-[0-9]* 2>/dev/null | sort -V | tail -n 1)
+if [ -n "$LATEST_GCC" ]; then
+    alias gcc="$LATEST_GCC"
+    alias g++="${LATEST_GCC/gcc/g++}"
+fi

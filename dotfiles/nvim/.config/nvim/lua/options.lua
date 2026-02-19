@@ -45,3 +45,4 @@ opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })
 -- Performance Improvements
 opt.redrawtime = 10000
 opt.maxmempattern = 20000
+

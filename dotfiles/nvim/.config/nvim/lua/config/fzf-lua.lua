@@ -15,7 +15,7 @@ require("fzf-lua").setup {
 
   grep = {
     -- Ensures live_grep also respects .gitignore + shows hidden files
-    rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e --hidden --glob '!.git/'",
+    rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --hidden --glob '!.git/'",
   },
 }
 

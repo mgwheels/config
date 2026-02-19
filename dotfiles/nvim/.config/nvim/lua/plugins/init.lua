@@ -68,6 +68,12 @@ local plugin_specs = {
     event = "InsertEnter",
     config = true
   },
+
+  -- Comments
+  {
+    "tpope/vim-commentary",
+    event = "VeryLazy",
+  },
 }
 
 
