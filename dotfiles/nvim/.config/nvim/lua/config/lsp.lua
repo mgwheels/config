@@ -1,6 +1,21 @@
 -- LSP Config
 -- Sets up keybindings for LSP-enabled buffers
 -- NOTE: Servers are automatically enabled by mason-lspconfig
+
+-- Format on save
+local format_on_save_filetypes = {
+  lua = true,
+}
+-- Autocommand to format on save for specified filetypes
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function()
+    local filetype = vim.bo.filetype
+    if format_on_save_filetypes[filetype] then
+      vim.lsp.buf.format({ async = false })
+    end
+  end,
+})
+
 -- LSP Keybindings
 local lspkeymaps = function(bufnr)
   local opts = { buffer = bufnr }

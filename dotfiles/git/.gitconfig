@@ -1,0 +1,9 @@
+[user]
+	email = sample@email.com
+	name = Firstname Lastname
+[credential]
+	helper = manager-core
+[push]
+	autoSetupRemote = true
+[pager]
+	branch = false

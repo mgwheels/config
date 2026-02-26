@@ -1,0 +1,4 @@
+.vscode-server
+.cache
+.local
+.bun

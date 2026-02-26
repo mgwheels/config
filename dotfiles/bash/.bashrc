@@ -46,6 +46,23 @@ alias vi=nvim
 alias nvim-update='nvim --headless "+Lazy! sync" +qa'
 
 
+# ----- Opencode ----- #
+alias oc='opencode'
+
+
+# ----- Fuzzy Finder ----- #
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
+# alias fzfd='__fzf_cd__' # TODO: Need to fix this, doesn't quite work.. For now, use `Alt + c`
+alias fzf="fzf --preview='cat {}'"
+# Use fd for the main 'fzf' command (ignores node_modules via .gitignore)
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+# Use fd for Ctrl+T (File search)
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# Use fd for Alt+C (Directory-only search)
+export FZF_ALT_C_COMMAND='fd --type d --strip-cwd-prefix --hidden --follow --exclude .git'
+
+
 # ----- Tmux ----- #
 alias tn='tmux new -s'
 alias ta='tmux a -t'
@@ -58,7 +75,6 @@ alias tka='tmux kill-server'
 alias open=explorer.exe
 alias reload='source ~/.bashrc'
 alias weather='curl wttr.in' # curl wttr.in/CityName
-alias fzf="fzf --preview='cat {}'"
 alias lg='lazygit'
 
 
@@ -70,3 +86,4 @@ if [ -n "$LATEST_GCC" ]; then
     alias gcc="$LATEST_GCC"
     alias g++="${LATEST_GCC/gcc/g++}"
 fi
+
