@@ -5,6 +5,7 @@
 -- Format on save
 local format_on_save_filetypes = {
   lua = true,
+  xml = true,
 }
 -- Autocommand to format on save for specified filetypes
 vim.api.nvim_create_autocmd("BufWritePre", {
