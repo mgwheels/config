@@ -8,27 +8,51 @@ return {
       sort_by = "case_sensitive",
 
       filters = {
-        dotfiles = false, -- Show files starting with a dot (like .gitignore)
+        dotfiles = false,    -- Show files starting with a dot (like .gitignore)
         git_ignored = false, -- Show files listed in .gitignore (like .terraform)
       },
-      -- Optional: If you still want to hide the .git folder itself
+
       git = {
-        ignore = false,
+        enable = true,  -- Enable git integrations
+        ignore = false, -- Optional: If you still want to hide the .git folder itself
       },
 
-      -- actions = {
-      -- open_file = {
-      -- quit_on_open = true,
-      -- },
-      -- },
+      actions = {
+        open_file = {
+          quit_on_open = false, -- Optional: If you want to collapse tree on open file
+        },
+      },
+
+      diagnostics = {
+        enable = true,
+        icons = {
+          error = "E",
+          warning = "W",
+          info = "I",
+          hint = "H",
+        },
+      },
+
+      -- Additional configuration to force v and s to vertical or horizontal split in nvim-tree. No longer need to use CTRL v / CTRL s.
+      on_attach = function(bufnr)
+        local api = require("nvim-tree.api")
+        local function opts(desc)
+          return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+        end
+        -- Load ALL default keybindings first
+        api.config.mappings.default_on_attach(bufnr)
+        -- Add custom keybindings (s for horizontal, v for vertical)
+        vim.keymap.set("n", "s", api.node.open.horizontal, opts("Horizontal Split"))
+        vim.keymap.set("n", "v", api.node.open.vertical, opts("Vertical Split"))
+      end,
+
       view = {
         width = 30,
         side = "left",
       },
-      filters = {
-        dotfiles = false,
-      },
+
       renderer = {
+        highlight_git = true,
         group_empty = true,
         icons = {
           -- This stops nvim-tree from asking mini.icons for Nerd Font symbols
@@ -65,6 +89,26 @@ return {
     vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle nvim-tree" })
     vim.keymap.set('n', '<leader>tf', '<cmd>NvimTreeFindFile<cr>', { desc = 'Find file in nvim-tree' })
     vim.keymap.set('n', '<leader>te', '<cmd>NvimTreeFocus<cr>', { desc = 'Focus (entrace) to nvim-tree' })
-    vim.keymap.set('n', '<leader>tc', '<cmd>NvimTreeCollapse<cr>', { desc = 'Collapse all folders in nvim-tree' })
+
+    -- Built in keybinds
+    --[[
+      File Management:
+        - r      -- Rename file
+        - a      -- Create new file/folder
+        - d      -- Delete file
+        - x      -- Cut and copy selection to clipboard
+        - c      -- Copy to clipboard
+        - p      -- Paste clipboard to current location
+        - y      -- Yank file name to clipboard
+
+      File Selection:
+        - Enter  -- Open file in new buffer
+        - Tab    -- Open file in new buffer AND stay in tree
+
+      File Explorer:
+        - E      -- Expand all folders
+        - W      -- Collapse all folders
+        - R      -- Perform refresh / reread of all files in project
+    ]] --
   end,
 }

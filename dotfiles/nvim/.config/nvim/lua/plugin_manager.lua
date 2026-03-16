@@ -8,12 +8,13 @@ vim.opt.rtp:prepend(lazypath)
 -- Specs for plugins
 local plugin_specs = {
   require("plugins.colors.catppuccin"), -- colorscheme
-  require("plugins.treesitter"),        -- nvim-treesitter
-  require("plugins.nvim-tree"),         -- nvim-tree
-  require("plugins.fzf-lua"),           -- fzf-lua
+  require("plugins.treesitter"),        -- Syntax highlighting / parsing for different languages
+  require("plugins.nvim-tree"),         -- Tree sidebar
+  require("plugins.fzf-lua"),           -- Fuzzy find / fuzzy grep
   require("plugins.mason-lsp"),         -- Mason lsp configuration
-  require("plugins.nvim-autopairs"),    -- nvim-autopairs for auto brackets, quotes, etc.
+  require("plugins.nvim-autopairs"),    -- Auto create pairs for brackets, quotes, etc.
   require("plugins.vim-commentary"),    -- Comments
+  require("plugins.gitsigns"),          -- Git hunk / blame integrations
 }
 
 -- Pass the specs table to lazy.setup

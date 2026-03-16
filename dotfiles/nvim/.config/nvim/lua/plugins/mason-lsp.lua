@@ -30,7 +30,7 @@ return {
     -- ============================================
     -- LSP client config (keybindings, format on save)
     -- ============================================
-    -- Format on save
+    -- Auto-format on save
     local format_on_save_filetypes = {
       lua = true,
     }
@@ -46,14 +46,19 @@ return {
     -- LSP Keybindings
     local lspkeymaps = function(bufnr)
       local opts = { buffer = bufnr }
+      -- Navigation
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
-      vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "References" })
       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
+      vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "References" })
       vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
-      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
-      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
-      -- Diagnostic keybinds
+      -- Information and Refactoring
+      vim.keymap.set("n", "K", vim.lsp.buf.hover,
+        { desc = "Hover - opens floating window showing documentation (like hovering in VS Code)" })
+      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename,
+        { desc = "Rename - smart rename. If renaming a function, will rename in every other file automatically" })
+      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action,
+        { desc = "Code action - quick fixes. Ex. if you have an unused import, this could quickly remove it." })
+      -- Diagnostics
       vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { buffer = bufnr, desc = "Show diagnostic" })
       vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { buffer = bufnr, desc = "Previous diagnostic" })
       vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = bufnr, desc = "Next diagnostic" })
