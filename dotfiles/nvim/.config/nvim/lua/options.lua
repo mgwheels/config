@@ -45,3 +45,8 @@ opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })
 -- Performance Improvements
 opt.redrawtime = 10000
 opt.maxmempattern = 20000
+
+-- Folding Settings
+opt.foldcolumn = '1'    -- Show fold indicator column
+opt.foldlevel = 99      -- Start with most folds open
+opt.foldlevelstart = 99 -- Apply foldlevel when opening a buffer

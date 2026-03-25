@@ -30,16 +30,8 @@ vim.g.mapleader = " "
 vim.keymap.set('n', '<leader>w', '<C-w>w', { desc = "Switch between windows" })
 
 -- Quicker scrolling
-vim.keymap.set({'n', 'v'}, '<leader>j', '<C-d>zz', { desc = "Scroll down half page (centered)" })
-vim.keymap.set({'n', 'v'}, '<leader>k', '<C-u>zz', { desc = "Scroll up half page (centered)" })
+vim.keymap.set({ 'n', 'v' }, '<leader>j', '<C-d>zz', { desc = "Scroll down half page (centered)" })
+vim.keymap.set({ 'n', 'v' }, '<leader>k', '<C-u>zz', { desc = "Scroll up half page (centered)" })
 
-
--- vim-commentary Keybindings
--- | Keybind | Action |
--- |---------|--------|
--- | gcc | Toggle comment on current line |
--- | gc{motion} | Toggle comment for motion (e.g., gcip = comment paragraph) |
--- | gc (visual) | Toggle comment on selected lines |
--- | gcgc | Toggle comment on current and next line |
 
 -- TODO: May be worth adding some keymaps to nav btwn windows directly ( ex. CTRL-w + (h,j,k,l) )

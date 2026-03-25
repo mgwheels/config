@@ -15,6 +15,7 @@ local plugin_specs = {
   require("plugins.nvim-autopairs"),    -- Auto create pairs for brackets, quotes, etc.
   require("plugins.vim-commentary"),    -- Comments
   require("plugins.gitsigns"),          -- Git hunk / blame integrations
+  require("plugins.nvim-ufo"),          -- Code folding with treesitter + preview
 }
 
 -- Pass the specs table to lazy.setup

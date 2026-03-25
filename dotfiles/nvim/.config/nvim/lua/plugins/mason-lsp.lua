@@ -40,6 +40,7 @@ return {
         local filetype = vim.bo.filetype
         if format_on_save_filetypes[filetype] then
           vim.lsp.buf.format({ async = false })
+          vim.cmd('silent! write')
         end
       end,
     })
@@ -52,7 +53,7 @@ return {
       vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "References" })
       vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
       -- Information and Refactoring
-      vim.keymap.set("n", "K", vim.lsp.buf.hover,
+      vim.keymap.set("n", "gH", vim.lsp.buf.hover,
         { desc = "Hover - opens floating window showing documentation (like hovering in VS Code)" })
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename,
         { desc = "Rename - smart rename. If renaming a function, will rename in every other file automatically" })
