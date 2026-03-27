@@ -21,6 +21,10 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Go to down window' })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Go to up window' })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Go to right window' })
 
+-- Buffer keymaps
+vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<S-Tab>', ':bprev<CR>', { desc = 'Previous buffer' })
+
 -- [[ Leader Remaps ]]
 
 -- Leaderkey mapping
@@ -33,5 +37,22 @@ vim.keymap.set('n', '<leader>w', '<C-w>w', { desc = "Switch between windows" })
 vim.keymap.set({ 'n', 'v' }, '<leader>j', '<C-d>zz', { desc = "Scroll down half page (centered)" })
 vim.keymap.set({ 'n', 'v' }, '<leader>k', '<C-u>zz', { desc = "Scroll up half page (centered)" })
 
+--[[ Keybinds for Folding:
+  za         Toggle fold at cursor (built-in)
+  zA         Toggle fold recursively (built-in)
+  zo         Open fold (built-in)
+  zO         Open fold recursively (built-in)
+  zc         Close fold (built-in)
+  zC         Close fold recursively (built-in)
+  zR         Open ALL folds (built-in)
+  zM         Close ALL folds (built-in)
+  zm         Close one fold level (built-in)
+  zr         Open one fold level (built-in)
+  zj         Jump to next fold (built-in)
+  zk         Jump to previous fold (built-in)
+  [z         Jump to fold start (built-in)
+  ]z         Jump to fold end (built-in)
+  zf         Create manual fold (e.g. 3zf to fold 3 lines) (built-in)
+--]]
 
 -- TODO: May be worth adding some keymaps to nav btwn windows directly ( ex. CTRL-w + (h,j,k,l) )
