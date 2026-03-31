@@ -26,6 +26,7 @@ opt.termguicolors = true  -- Enable 24-bit RGB color in the TUI
 opt.showmode = false      -- Don't display current mode
 opt.showmatch = true      -- Highlight matching brackets
 opt.matchtime = 2         -- How long to show matching bracket
+opt.pumborder = "single"  -- Pop up menu border
 
 -- Search Settings
 opt.incsearch = true  -- Search as characters are entered

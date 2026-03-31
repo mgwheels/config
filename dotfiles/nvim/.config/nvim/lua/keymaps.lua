@@ -24,6 +24,7 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Go to right window' })
 -- Buffer keymaps
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<S-Tab>', ':bprev<CR>', { desc = 'Previous buffer' })
+vim.keymap.set('n', '<leader><leader>', '<c-^>', { desc = 'Toggle to last buffer' })
 
 -- [[ Leader Remaps ]]
 
