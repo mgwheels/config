@@ -48,7 +48,7 @@ opt.redrawtime = 10000
 opt.maxmempattern = 20000
 
 -- Folding Settings
-opt.foldcolumn = '1'      -- Show fold indicator column
+-- opt.foldcolumn = '1'      -- Show fold indicator column
 opt.foldlevel = 99        -- Start with most folds open
 opt.foldlevelstart = 99   -- Apply foldlevel when opening a buffer
 opt.foldmethod = 'indent' -- Fold based on indent
