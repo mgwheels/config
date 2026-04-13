@@ -23,9 +23,24 @@ source "$OSH"/oh-my-bash.sh
 # alias ohmybash="mate ~/.oh-my-bash"
 
 
+# ----- Homebrew ----- #
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+# Add the specific folder where Brew keeps the generic 'gcc' name to override older system version
+LATEST_GCC=$(ls -1 $(brew --prefix)/bin/gcc-[0-9]* 2>/dev/null | sort -V | tail -n 1)
+if [ -n "$LATEST_GCC" ]; then
+    alias gcc="$LATEST_GCC"
+    alias g++="${LATEST_GCC/gcc/g++}"
+fi
+
+
 # ----- Python ----- #
 alias pyenvc='python3 -m venv .venv'
 alias pyenv='source ./.venv/bin/activate'
+
+
+# ----- Go ----- #
+# Add Go binaries to PATH (for installed tools like gopls)
+export PATH="$(brew --prefix)/opt/go/libexec/bin:$PATH"
 
 
 # ----- NVM / NPM ----- #
@@ -41,7 +56,6 @@ source ~/.config/miscellaneous/dotfilePush.sh
 
 
 # ----- Neovim ----- #
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 alias vi=nvim
 alias nvim-update='nvim --headless "+Lazy! sync" +qa'
 
@@ -74,16 +88,6 @@ alias tka='tmux kill-server'
 # ----- Alias ----- #
 alias open=explorer.exe
 alias reload='source ~/.bashrc'
-alias weather='curl wttr.in' # curl wttr.in/CityName
+alias weather='curl wttr.in'
 alias lg='lazygit'
-
-
-# ----- Homebrew ----- #
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
-# Add the specific folder where Brew keeps the generic 'gcc' name to override older system version
-LATEST_GCC=$(ls -1 $(brew --prefix)/bin/gcc-[0-9]* 2>/dev/null | sort -V | tail -n 1)
-if [ -n "$LATEST_GCC" ]; then
-    alias gcc="$LATEST_GCC"
-    alias g++="${LATEST_GCC/gcc/g++}"
-fi
 

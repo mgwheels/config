@@ -4,7 +4,7 @@ return {
   config = function()
     require("bufferline").setup({
       options = {
-        mode = "buffers",
+        mode = "buffer",
         style_preset = "default",
         theming = true,
         numbers = "none",
@@ -12,7 +12,7 @@ return {
         right_mouse_command = "bdelete! %d",
         diagnostics = "nvim_lsp",
         always_show_bufferline = false,
-        separator_style = "thin",
+        separator_style = "slant", -- Style for tab separators. Other options include `thin`, `thick`, `slant`, `slope`, `padded_slant`, `padded_slope`
         indicator = {
           style = "none",
         },
@@ -25,13 +25,7 @@ return {
           enabled = true,
           delay = 200,
         },
-        diagnostics_indicator = function(_, _, diag)
-          local icons = { error = "E", warn = "W", hint = "H", info = "I" }
-          local ret = (diag.error and icons.error .. diag.error .. " " or "")
-            .. (diag.warning and icons.warn .. diag.warning or "")
-          return ret ~= "" and ret or nil
-        end,
-      },
+      }
     })
   end,
   event = "VeryLazy",

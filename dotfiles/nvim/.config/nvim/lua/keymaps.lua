@@ -22,10 +22,9 @@ vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Go to up window' })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Go to right window' })
 
 -- Buffer keymaps
-vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })
-vim.keymap.set('n', '<S-Tab>', ':bprev<CR>', { desc = 'Previous buffer' })
-vim.keymap.set('n', '<leader><leader>', '<c-^>', { desc = 'Toggle to last buffer' })
-
+vim.keymap.set('n', ']b', ':bnext<CR>', { desc = 'Next buffer' })
+vim.keymap.set('n', '[b', ':bprev<CR>', { desc = 'Previous buffer' })
+vim.keymap.set('n', ';b', ':bd!<CR>', { desc = 'Close buffer and go to next' })
 -- [[ Leader Remaps ]]
 
 -- Leaderkey mapping

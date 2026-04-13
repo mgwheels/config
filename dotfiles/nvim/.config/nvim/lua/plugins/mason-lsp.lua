@@ -16,7 +16,7 @@ return {
       -- All LSP can be viewed with `:help lspconfig-all` or by visiting: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#yls
       ensure_installed = {
         "bashls",        -- Bash/Shell
-        -- "gopls",        -- Go -- TODO: requires Go installed first on computer
+        "gopls",         -- Go -- NOTE: requires Go installed first on computer
         "jsonls",        -- JSON
         "lua_ls",        -- Lua
         "pyright",       -- Python
@@ -32,7 +32,9 @@ return {
     -- ============================================
     -- Auto-format on save
     local format_on_save_filetypes = {
+      go = true,
       lua = true,
+      py = true,
     }
     -- Autocommand to format on save for specified filetypes
     vim.api.nvim_create_autocmd("BufWritePre", {
@@ -40,7 +42,15 @@ return {
         local filetype = vim.bo.filetype
         if format_on_save_filetypes[filetype] then
           vim.lsp.buf.format({ async = false })
-          vim.cmd('silent! write')
+        end
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("BufWritePost", {
+      callback = function()
+        local filetype = vim.bo.filetype
+        if format_on_save_filetypes[filetype] then
+          vim.cmd('checktime')
         end
       end,
     })

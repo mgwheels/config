@@ -19,7 +19,7 @@ return {
 
       actions = {
         open_file = {
-          quit_on_open = false, -- Optional: If you want to collapse tree on open file
+          quit_on_open = true, -- Optional: If you want to collapse tree on open file
         },
       },
 
@@ -55,10 +55,12 @@ return {
         highlight_git = true,
         group_empty = true,
         icons = {
-          -- This stops nvim-tree from asking mini.icons for Nerd Font symbols
+          -- nvim-web-devicons provides file/folder icons automatically when enabled
+          -- (Requires: 1) Nerd Font installed in terminal, 2) nvim-web-devicons plugin loaded)
+          -- If you don't have Nerd Font, icons will show as question marks [?] or fallback text
           web_devicons = {
-            file = { enable = false },
-            folder = { enable = false },
+            -- file = { enable = false },   -- UNCOMMENT if Nerd Font NOT installed
+            -- folder = { enable = false }, -- UNCOMMENT if Nerd Font NOT installed
           },
           -- This toggle handles the fallback
           show = {
@@ -67,19 +69,20 @@ return {
             folder_arrow = USE_ICONS,
             git = false, -- Set to false to hide git icons showing ?
           },
-          glyphs = {
-            default = "-",
-            symlink = "s",
-            folder = {
-              -- Text fallbacks for when USE_ICONS is false
-              arrow_closed = ">",
-              arrow_open = "v",
-              default = "[D]",
-              open = "[O]",
-              empty = "[ ]",
-              empty_open = "[ ]",
-            },
-          },
+          -- Fallback glyphs when Nerd Font not available
+          -- (uncomment and use these if not using Nerd Font)
+          -- glyphs = {
+          --   default = "-",
+          --   symlink = "s",
+          --   folder = {
+          --     arrow_closed = ">",
+          --     arrow_open = "v",
+          --     default = "[D]",
+          --     open = "[O]",
+          --     empty = "[ ]",
+          --     empty_open = "[ ]",
+          --   },
+          -- },
         },
       },
 
