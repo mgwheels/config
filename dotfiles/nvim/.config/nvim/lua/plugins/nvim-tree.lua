@@ -52,7 +52,7 @@ return {
       },
 
       renderer = {
-        highlight_git = true,
+        highlight_git = "name",
         group_empty = true,
         icons = {
           -- nvim-web-devicons provides file/folder icons automatically when enabled
