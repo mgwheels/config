@@ -19,7 +19,7 @@ return {
 
       actions = {
         open_file = {
-          quit_on_open = true, -- Optional: If you want to collapse tree on open file
+          quit_on_open = false, -- Optional: If you want to collapse tree on open file
         },
       },
 
