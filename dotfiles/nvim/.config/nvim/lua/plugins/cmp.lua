@@ -8,7 +8,7 @@ return {
     local cmp = require("cmp")
     cmp.setup({
       completion = {
-        autocomplete = enable, -- Toggles auto-trigger for completion by default
+        autocomplete = disable, -- Toggles auto-trigger for completion by default
       },
       mapping = cmp.mapping.preset.insert({
         ["<C-Space>"] = cmp.mapping.complete(), -- Manually trigger completion with CTRL Space
