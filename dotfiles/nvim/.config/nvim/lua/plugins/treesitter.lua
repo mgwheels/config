@@ -8,7 +8,16 @@ return {
     configs.setup({
       -- A list of parser names, or "all"
       ensure_installed = {
-        "lua", "vim", "vimdoc", "query", "go", "python", "javascript", "markdown", "markdown_inline"
+        "go",
+        "html",
+        "javascript",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "query",
+        "vim",
+        "vimdoc"
       },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)

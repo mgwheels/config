@@ -8,6 +8,23 @@ return {
     "neovim/nvim-lspconfig",
   },
   config = function()
+    -- Additional syntax highlighting for go
+    vim.lsp.config('gopls', {
+      settings = {
+        gopls = {
+          semanticTokens = true,
+        }
+      },
+    })
+
+    -- Workaround for issue with terraform-ls in nvim 0.12 - https://github.com/hashicorp/terraform-ls/issues/2108
+    -- Disable semantic tokens for terraformls to prevent hangs
+    vim.lsp.config('terraformls', {
+      on_attach = function(client, bufnr)
+        client.server_capabilities.semanticTokensProvider = nil
+      end,
+    })
+
     -- ============================================
     -- Mason (server installation)
     -- ============================================
@@ -17,6 +34,7 @@ return {
       ensure_installed = {
         "bashls",        -- Bash/Shell
         "gopls",         -- Go -- NOTE: requires Go installed first on computer
+        "html",          -- HTML
         "jsonls",        -- JSON
         "lua_ls",        -- Lua
         "pyright",       -- Python
@@ -33,6 +51,8 @@ return {
     -- Auto-format on save
     local format_on_save_filetypes = {
       go = true,
+      html = true,
+      json = true,
       lua = true,
       py = true,
     }

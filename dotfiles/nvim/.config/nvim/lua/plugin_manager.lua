@@ -7,7 +7,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Specs for plugins
 local plugin_specs = {
-  require("plugins.colors.sonokai"),    -- colorscheme
+  require("plugins.colors.catppuccin"), -- colorscheme
   require("plugins.bufferline"),        -- Add bufferline to top of screen.
   require("plugins.cmp"),               -- Enable LSP auto-completion, and give option for code completion
   require("plugins.fzf-lua"),           -- Fuzzy find / fuzzy grep
