@@ -18,6 +18,7 @@ local plugin_specs = {
   require("plugins.nvim-tree"),         -- Tree sidebar
   require("plugins.nvim-web-devicons"), -- File type icons (requires Nerd Font in terminal)
   require("plugins.treesitter"),        -- Syntax highlighting / parsing for different languages
+  require("plugins.render-markdown"),   -- Render markdown files directly in nvim
   require("plugins.vim-commentary"),    -- Comments
   require("plugins.vim-surround"),      -- Surrounding quotes / tags keybinds
   require("plugins.vim-repeat"),        -- Add support for . repeating plugin actions
