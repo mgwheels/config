@@ -31,17 +31,18 @@ return {
     require("mason").setup()
     require("mason-lspconfig").setup({
       -- All LSP can be viewed with `:help lspconfig-all` or by visiting: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#yls
-      ensure_installed = {
-        "bashls",        -- Bash/Shell
-        "gopls",         -- Go -- NOTE: requires Go installed first on computer
-        "html",          -- HTML
-        "jsonls",        -- JSON
-        "lua_ls",        -- Lua
-        "pyright",       -- Python
-        "rust_analyzer", -- Rust
-        "terraformls",   -- Terraform
-        "ts_ls",         -- TypeScript / JavaScript
-        "lemminx",       -- XML
+      ensure_installed = { -- TODO: Add support for yaml / yml files
+        "bashls",          -- Bash/Shell
+        "gopls",           -- Go -- NOTE: requires Go installed first on computer
+        "html",            -- HTML
+        "jsonls",          -- JSON
+        "lua_ls",          -- Lua
+        -- "pyright",         -- Python, owned by MS. Doesnt support tokens to push VS Code i guess
+        "basedpyright",    -- Python, forked from pyright. Supports semantic token highlighting
+        -- "rust_analyzer",   -- Rust
+        "terraformls",     -- Terraform
+        "ts_ls",           -- TypeScript / JavaScript
+        "lemminx",         -- XML
       },
       automatic_installation = true,
     })
