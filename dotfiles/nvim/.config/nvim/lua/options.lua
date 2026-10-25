@@ -7,6 +7,7 @@ opt.completeopt = { 'menu', 'menuone', 'noselect' }
 opt.mouse = 'a'               -- allow mouse to be used in nvim
 opt.errorbells = false        -- No error bells
 opt.autoread = true           -- Auto-reload files changed outside of nvim
+opt.swapfile = false          -- Disable swapfiles entirely
 
 -- Indent Settings
 opt.tabstop = 2        -- Number of visual spaces per TAB
