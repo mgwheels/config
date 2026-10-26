@@ -139,6 +139,7 @@ welcome_info() {
     [ -z "$quick_weather" ] && quick_weather="Offline"
 
     # 1. Print the full ASCII art first
+    echo ""
     printf "${art_color}⡏⠉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿${nc}\n"
     printf "${art_color}⣿⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠁⠀⣿${nc}\n"
     printf "${art_color}⣿⣧⡀⠀⠀⠀⠀⠙⠿⠿⠿⠻⠿⠿⠟⠿⠛⠉⠀⠀⠀⠀⠀⣸⣿${nc}\n"
