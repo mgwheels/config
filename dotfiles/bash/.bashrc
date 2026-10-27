@@ -102,7 +102,8 @@ alias gaa='git add -all'
 alias gs='git status'
 alias gss='git status -sb'
 alias gsv='git status -vv'
-
+alias grpo='git remote prune origin'
+alias gba='git branch -avv'
 
 # ----- Alias ----- #
 alias open=explorer.exe
@@ -112,18 +113,68 @@ alias l='ls -lha'
 
 
 # ----- Startup ----- #
+# Func for fun fact on startup
+fun_fact() {
+    local facts=()
+
+    # --- Space & Nature ---
+    facts+=("One day on Venus is longer than one year on Venus. 🪐")
+    facts+=("Honey never spoils. You could theoretically eat 3,000-year-old Egyptian tomb honey. 🍯")
+    facts+=("Trees on Earth outnumber the stars in the Milky Way galaxy by about 30比1. 🌲")
+    facts+=("Bananas are slightly radioactive because they contain high amounts of potassium-40. 🍌")
+    facts+=("Sharks have been swimming in Earth's oceans longer than trees have existed on land. 🦈")
+    facts+=("Space is a silent vacuum, but radio waves from stars can be converted into eerie audio. 🛰️")
+    facts+=("Sloths can hold their breath underwater for up to 40 minutes by slowing their heart rate. 🦥")
+
+    # --- Technology & Computing ---
+    facts+=("The first computer bug was a real moth found trapped in a relay in 1947. 🐛")
+    facts+=("The first commercial computer mouse was made of wood and had only one button. 🖱️")
+    facts+=("The QWERTY keyboard layout was designed to slow down typing to prevent mechanical typewriter jams. ⌨️")
+    facts+=("The entire World Wide Web in 1991 consisted of just a single webpage hosted on a NeXT computer. 🌐")
+    facts+=("The Linux mascot, Tux, was inspired by Linus Torvalds being bitten by a penguin at a zoo. 🐧")
+    facts+=("The first webcam was invented at Cambridge just to monitor if the kitchen coffee pot was empty. ☕")
+    facts+=("Linus Torvalds jokingly named Git after British slang for an unpleasant or stubborn person. 🛠️")
+    facts+=("On January 19, 2038, 32-bit Unix systems will overflow their time counters, mimicking a Y2K bug. ⏳")
+
+    # --- History & Quirks ---
+    facts+=("Oxford University is older than the Aztec Empire. 🏛️")
+    facts+=("Nintendo was founded way back in 1889 as a playing card company. 🃏")
+    facts+=("The total weight of all the ants on Earth is roughly equal to the total weight of all humans. 🐜")
+    facts+=("The Anglo-Zanzibar War of 1896 is the shortest war in history, lasting just 38 minutes. ⏱️")
+    facts+=("The Eiffel Tower can grow up to 6 inches taller during summer due to thermal expansion. 🗼")
+    facts+=("Play-Doh was originally invented in the 1930s as a commercial wallpaper cleaner. 🎨")
+
+
+    # Randomly select an index from the array and print
+    local total_facts=${#facts[@]}
+    local random_index=$((RANDOM % total_facts))
+    printf "${facts[$random_index]}"
+}
+
 # Lightweight welcome script
 welcome_info() {
-    # Text colors
-    local teal='\033[38;2;139;213;202m'
+    # Catppuccin Macchiato Palette
+    local rosewater='\033[38;2;244;219;214m'
+    local flamingo='\033[38;2;240;198;198m'
+    local pink='\033[38;2;245;189;230m'
     local mauve='\033[38;2;198;160;246m'
+    local red='\033[38;2;237;135;150m'
+    local maroon='\033[38;2;238;153;160m'
     local peach='\033[38;2;245;169;127m'
+    local yellow='\033[38;2;238;212;159m'
+    local green='\033[38;2;166;218;149m'
+    local teal='\033[38;2;139;213;202m'
+    local sky='\033[38;2;145;215;227m'
+    local sapphire='\033[38;2;125;196;228m'
+    local blue='\033[38;2;138;173;244m'
+    local lavender='\033[38;2;183;189;248m'  
     local white='\033[1;37m'
 
     local art_color=$teal
     local user_color=$mauve
     local title_color=$peach
     local value_color=$white
+    local fact_color=$green
     local nc='\033[0m' # No Color
 
     # Gather static details
@@ -140,17 +191,17 @@ welcome_info() {
 
     # 1. Print the full ASCII art first
     echo ""
-    printf "${art_color}⡏⠉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿${nc}\n"
-    printf "${art_color}⣿⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠁⠀⣿${nc}\n"
-    printf "${art_color}⣿⣧⡀⠀⠀⠀⠀⠙⠿⠿⠿⠻⠿⠿⠟⠿⠛⠉⠀⠀⠀⠀⠀⣸⣿${nc}\n"
-    printf "${art_color}⣿⣿⣷⣄⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿${nc}\n"
-    printf "${art_color}⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⣴⣿⣿⣿⣿${nc}\n"
-    printf "${art_color}⣿⣿⣿⡟⠀⠀⢰⣹⡆⠀⠀⠀⠀⠀⠀⣭⣷⠀⠀⠀⠸⣿⣿⣿⣿${nc}\n"
-    printf "${art_color}⣿⣿⣿⠃⠀⠀⠈⠉⠀⠀⠤⠄⠀⠀⠀⠉⠁⠀⠀⠀⠀⢿⣿⣿⣿${nc}\n"
-    printf "${art_color}⣿⣿⣿⢾⣿⣷⠀⠀⠀⠀⡠⠤⢄⠀⠀⠀⠠⣿⣿⣷⠀⢸⣿⣿⣿${nc}\n"
-    printf "${art_color}⣿⣿⣿⡀⠉⠀⠀⠀⠀⠀⢄⠀⢀⠀⠀⠀⠀⠉⠉⠁⠀⠀⣿⣿⣿${nc}\n"
-    printf "${art_color}⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿${nc}\n"
-    printf "${art_color}⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿${nc}\n"
+    printf "${art_color}  ⡏⠉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿${nc}\n"
+    printf "${art_color}  ⣿⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠁⠀⣿${nc}\n"
+    printf "${art_color}  ⣿⣧⡀⠀⠀⠀⠀⠙⠿⠿⠿⠿⠿⠿⠿⠿⠛⠉⠀⠀⠀⠀⠀⣸⣿${nc}\n"
+    printf "${art_color}  ⣿⣿⣷⣄⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿${nc}\n"
+    printf "${art_color}  ⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⣴⣿⣿⣿⣿${nc}\n"
+    printf "${art_color}  ⣿⣿⣿⡟⠀⠀⢰⣹⡆⠀⠀⠀⠀⠀⠀⣭⣷⠀⠀⠀⠸⣿⣿⣿⣿${nc}\n"
+    printf "${art_color}  ⣿⣿⣿⠃⠀⠀⠈⠉⠀⠀⠤⠄⠀⠀⠀⠉⠁⠀⠀⠀⠀⢿⣿⣿⣿${nc}\n"
+    printf "${art_color}  ⣿⣿⣿⢾⣿⣷⠀⠀⠀⠀⡠⠤⢄⠀⠀⠀⠠⣿⣿⣷⠀⢸⣿⣿⣿${nc}\n"
+    printf "${art_color}  ⣿⣿⣿⡀⠉⠀⠀⠀⠀⠀⢄⠀⢀⠀⠀⠀⠀⠉⠉⠁⠀⠀⣿⣿⣿${nc}\n"
+    printf "${art_color}  ⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿${nc}\n"
+    printf "${art_color}  ⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿${nc}\n"
     echo ""
 
     # 2. Print the text information blocks stacked below the art
@@ -158,6 +209,8 @@ welcome_info() {
     printf "  ${title_color}OS      ${value_color}%s${nc}\n" "$os_info"
     printf "  ${title_color}Time    ${value_color}%s${nc}\n" "$date_time"
     printf "  ${title_color}Weather ${value_color}%s${nc}\n" "$quick_weather"
+    echo ""
+    printf "  ${fact_color}Fun Fact: ${value_color}%s${nc}\n" "$(fun_fact)"
     echo ""
 }
 # Run the function on shell initialization
